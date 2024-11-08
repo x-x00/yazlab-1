@@ -29,5 +29,5 @@ def visualize_mfcc(mfcc_file_path):
     # plt.tight_layout()
     # plt.show()
 
-mfcc_file = "test_cleaned_audio_features/Scottish/A BIG Discovery in Scotland’s Sma Glen_segment_0.csv"
+mfcc_file = "test_cleaned_audio_features/Scottish/A BIG Discovery in Scotland's Sma Glen_segment_0.csv"
 visualize_mfcc(mfcc_file)

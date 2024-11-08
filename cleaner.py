@@ -18,7 +18,7 @@ def convert_to_wav(input_file, output_file, sample_rate=16000):
     Parameters:
     - input_file: Path to the input audio file
     - output_file: Path to save the output file
-    - sample_rate: Sampling rate of the wav file ( 44.1Khz by default. )
+    - sample_rate: Sampling rate of the wav file ( 16Khz by default. )
     """
 
     # Load the mp3 file
@@ -28,9 +28,9 @@ def convert_to_wav(input_file, output_file, sample_rate=16000):
     #print(audio.frame_rate)
 
     # Set sample rate and convert to mono. Default sr is 44.1Khz, when we reduce it to 16Khz it also reduces the audio file's quality and size.
-    # By reducing the number of channels from 2 (stereo) to 1, it decreases the amount of data to be processed, which increases efficiency.
+    # By reducing the number of channels from 2 (stereo) to 1 (mono), it decreases the amount of data to be processed, which increases efficiency.
     # https://cloud.google.com/speech-to-text/docs/best-practices-provide-speech-data
-    audio = audio.set_frame_rate(sample_rate).set_channels(1)  # Mono channel
+    audio = audio.set_frame_rate(sample_rate).set_channels(1)
 
     # Export as wav file
     audio.export(output_file, format="wav")
@@ -142,7 +142,7 @@ def clean_audio_dataset(input_dir, output_dir):
         temp_file = os.path.join(output_dir, "temp.wav")
         
         # Change to .wav format, resample, remove silence, reduce noise, normalize audio, split the audio into 5 second segments (split-audio.py),
-        # MFCC feature extraciton (feature-extraction.py)
+        # MFCC feature extraciton (mfcc-feature-extraction.py)
         # This will do.
         convert_to_wav(file, temp_file)
         remove_silence(temp_file, temp_file)
