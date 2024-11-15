@@ -8,7 +8,15 @@ import os
 # https://www.youtube.com/watch?v=WJI-17MNpdE
 
 def extract_and_save_mfcc(input_dir, output_base_dir):
-    # Iterate through each accent type folder
+    """
+    Saves the MFCC features of wav file into a csv file. (2D array)
+    
+    Parameters:
+    - input_dir: Path to the input audio segments folder.
+    - output_base_dir: Path to the output audio features.
+    """
+    
+    # Go through each accent type folder
     for accent_type in os.listdir(input_dir):
         accent_dir = os.path.join(input_dir, accent_type)
         if not os.path.isdir(accent_dir):
@@ -28,15 +36,15 @@ def extract_and_save_mfcc(input_dir, output_base_dir):
                 # Load the audio file
                 y, sr = librosa.load(file_path, sr=None)
                 
-                # Extract MFCC features
+                # Extract MFCC features (n_mfcc can be 13 as well)
                 mfcc = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=20)
 
                 print(mfcc.shape)
                 
-                # Convert the MFCC 2D array to a DataFrame
+                # Convert the MFCC 2D array to dataframe
                 mfcc_df = pd.DataFrame(mfcc)
 
-                # Save the MFCC features as a .csv file, {file_name.csv}.
+                # Save the MFCC features as a csv file, {file_name.csv}.
                 mfcc_file_path = os.path.join(output_dir, f"{os.path.splitext(file)[0]}.csv")
                 mfcc_df.to_csv(mfcc_file_path, index=False)
                 print(f"Saved MFCC features to: {mfcc_file_path}")
