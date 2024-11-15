@@ -34,6 +34,7 @@
 | Scottish | 4985 |
 
 
-## Veri Linki
+## Linkler
 
-[13_Veri](https://drive.google.com/file/d/1OOgX5hOHI6_ZeTWsouNzOCKsyssPX3aQ/view?usp=drive_link)
+- [Rapor](https://docs.google.com/document/d/1Mz8wz1hIUlL6WUE2k1PwpWwrBsdT7l4N/edit?usp=sharing&ouid=112408541141600154873&rtpof=true&sd=true)
+- [Veri](https://drive.google.com/file/d/1OOgX5hOHI6_ZeTWsouNzOCKsyssPX3aQ/view?usp=drive_link)
